@@ -1,0 +1,101 @@
+.UISelectModal{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .Exit{
+    font-size: 32px;
+    height: 40%;
+    svg{
+      cursor: pointer;
+    }
+    svg:hover{
+      fill: #cbcbcb;
+    }
+  }
+  &__box {
+    background-color: #2B2B2B;
+    padding: 20px;
+    &-title{
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .Input{
+      margin-bottom: 20px;
+      input{
+        text-indent: 5px;
+        background-color: #2B2B2B;
+        outline: none !important;
+        border: 1px solid white;
+        font-size: 18px;
+        width: 500px;
+        height: 30px;
+      }
+      .title{
+        font-size: 22px;
+      }
+      .error{
+        color: #f85a5a;
+      }
+    }
+    .Group{
+      font-size: 14px;
+      margin: 20px 0;
+      p{
+        font-weight: 400;
+        span{
+          font-weight: 600;
+        }
+      }
+    }
+    .Button{
+      text-align: center;
+        button{
+          background-color: transparent;
+          outline: none;
+          font-size: 24px;
+          border: 1px solid white;
+          padding: 5px 20px;
+          cursor: pointer;
+        }
+    }
+    &.entering {
+      animation: appearing 500ms ease-in-out forwards;
+    }
+
+    &.exiting {
+      animation: appearing 500ms ease-in-out alternate-reverse;
+    }
+  }
+}
+@keyframes appearing {
+  0%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  50%{
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 650px) {
+  .UISelectModal{
+    &__box{
+      .Input{
+        input{
+          width: calc(200px + (500 - 200) * ((100vw - 320px) / (650 - 320))) !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+.Info{
+  height: 100vh;
+  scroll-snap-align: start;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-quotes{
+      &-bold{
+        font-size: 64px;
+        font-weight: 1000;
+      }
+      &-thin{
+        font-size: 34px;
+        font-weight: 200;
+        width: 700px;
+      }
+    }
+    &-slider{
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      overflow: hidden;
+      &-item{
+        height: 750px;
+        width: 600px;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        //background-color: black;
+        &-container{
+          height: 500px;
+          width: 600px;
+          img{
+            border: 1px solid white;
+            height: 100%;
+            //object-fit: cover;
+            border-radius: 12px;
+          }
+        }
+      }
+    }
+  }
+  &__bottom{
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    font-size: 24px;
+    font-weight: 400;
+    span{
+      font-weight: bold;
+      display: block;
+    }
+  }
+}
+:global{
+  .swiper {
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1850px) {
+  .Info{
+    &__main{
+      display: flex;
+      flex-wrap: wrap;
+      &-quotes{
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .Info{
+    &__main{
+      &-slider{
+        &-item{
+          &-container{
+            width: calc(300px + (600 - 300) * ((100vw - 320px) / (1200 - 320)));
+            height: calc(200px + (500 - 200) * ((100vw - 320px) / (1200 - 320)));
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 900px) {
+  .Info{
+    background-size: contain;
+    &__main{
+      &-quotes{
+        &-bold{
+          width: fit-content;
+          font-size: calc(32px + (64 - 32) * ((100vw - 320px) / (900 - 320)));
+        }
+        &-thin{
+          width: fit-content;
+          font-size: calc(18px + (34 - 18) * ((100vw - 320px) / (900 - 320)));
+        }
+      }
+    }
+    &__bottom{
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      text-align: center;
+    }
+  }
+}

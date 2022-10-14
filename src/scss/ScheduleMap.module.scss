@@ -1,0 +1,28 @@
+.ScheduleMap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > div{
+    box-shadow: 0 5px 5px gray;
+    border: 2px solid black;
+    width: 1200px !important;
+    height: 400px !important;
+    margin-bottom: 30px;
+  }
+}
+:global{
+  .ymaps-2-1-79-copyright__wrap{
+    display: none !important;
+  }
+  .ymaps-2-1-79-map-copyrights-promo{
+    display: none !important;
+  }
+}
+@media (max-width: 1250px) {
+  .ScheduleMap{
+    & > div{
+      width: calc(300px + (1200 - 300) * ((100vw - 320px) / (1250 - 320))) !important;
+    }
+  }
+}

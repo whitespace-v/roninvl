@@ -1,0 +1,89 @@
+.Menu{
+  position: fixed;
+  width: 100%;
+  z-index: 8;
+  //margin-top: 10px;
+  background-color: black;
+  line-height: 30px;
+  box-shadow: 0 10px 10px black;
+  &__nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 18px;
+    &-item{
+      font-weight: 500;
+      cursor: pointer;
+    }
+    &-item:hover{
+      color: #989898;
+    }
+    p.active{
+      border-bottom: 2px solid white;
+    }
+
+  }
+  &__phone{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 40px;
+    font-size: 24px;
+    a{
+      text-decoration: none;
+    }
+  }
+  &-bars{
+    font-size: 34px;
+    cursor: pointer;
+  }
+  &-bars:hover{
+    svg{
+      fill: gray
+    }
+  }
+}
+.Menu-opened{
+  position: fixed;
+  top: 4%;
+  left: 0;
+  z-index: 9999;
+  height: 250px;
+  width: 100vw;
+  background-color: black;
+  padding-bottom: 50px;
+  &.entering{
+    animation: appearing 500ms ease-in-out forwards;
+  }
+  &.exiting{
+    animation: appearing 500ms ease-in-out alternate-reverse;
+  }
+  & > * {
+    margin-top: 20px;
+    font-size: 50px;
+  }
+}
+@media (max-width: 500px) {
+  .Menu{
+    &__phone{
+      font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (500 - 320)));
+      margin-right: 5px;
+    }
+  }
+  .Menu-opened {
+    & > * {
+      font-size: calc(18px + (50 - 18) * ((100vw - 320px) / (500 - 320)));
+    }
+  }
+}
+@keyframes appearing {
+  0%{
+    height: 0;
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+    height: 250px;
+  }
+}
